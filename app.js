@@ -2,9 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
-//var passwordHash = require('password-hash');
 var md5 = require('md5');
-
+var utility = require('./helper/util.js');
 
 var modelLogin = require('./router/login.js');
 var modelIndex = require('./router/index.js');
@@ -28,6 +27,8 @@ app.get('/logout', function (req, res) {
   req.session.destroy();
   res.send("logout success!");
 });
+
+console.log(utility.getMd5("123"+"123"));
 
 app.use(function (req, res) {
   if ((req.session)&&(req.session.login)) {

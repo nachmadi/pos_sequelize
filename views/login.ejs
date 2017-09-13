@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>STUDENTS</title>
+  <style>
+    table{width:500px;border:1px solid #333;}
+    table th{padding:5px;background: #ccc; text-align: left;}
+    table td{padding:5px;}
+  </style>
+</head>
+<body>
+  <h1>STUDENTS ADD</h1>
+  <%if(err){  %>
+    <div id="info"><%=info%></div>
+  <%} %>
+  <form action="/login" method="post">
+  <div>
+    <label><b>User<b></label><br>
+    <input type="text" name="user_name" placeholder="User Login">
+  </div>
+  <div>
+    <label><b>Password<b></label><br>
+    <input type="text" name="user_pass" placeholder="Password">
+  </div>
+
+  <button type="submit" name="submit">Login</button>
+</body>
+</html>

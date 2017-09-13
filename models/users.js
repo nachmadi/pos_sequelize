@@ -1,4 +1,6 @@
 'use strict';
+var utility = require('../helper/util.js');
+
 module.exports = function(sequelize, DataTypes) {
   var Users = sequelize.define('Users', {
     user_name: DataTypes.STRING,
@@ -6,11 +8,12 @@ module.exports = function(sequelize, DataTypes) {
     salt: DataTypes.STRING,
     role: DataTypes.STRING
   }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
+    hooks: {
+      beforeCreate: (callBackObjekIni) => {
+        let newPass = utility.getMd5(callBackObjekIni.user_pass+callBackObjekIni.salt);
+        callBackObjekIni.user_pass = newPass;
       }
-    }
+    }  
   });
   return Users;
 };
