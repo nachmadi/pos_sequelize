@@ -5,8 +5,9 @@ var session = require('express-session');
 var md5 = require('md5');
 var utility = require('./helper/util.js');
 
-var modelLogin = require('./router/login.js');
-var modelIndex = require('./router/index.js');
+var login = require('./router/login.js');
+var index = require('./router/index.js');
+var barang = require('./router/barangs.js');
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
@@ -19,16 +20,9 @@ app.use(session({
 // deklarasi letak file.js {otomatis di tambah s}
 app.set('view engine', 'ejs');
 
-app.use('/login', modelLogin);
-app.use('/index', modelIndex);
-
-// Logout endpoint
-app.get('/logout', function (req, res) {
-  req.session.destroy();
-  res.send("logout success!");
-});
-
-console.log(utility.getMd5("123"+"123"));
+app.use('/login', login);
+app.use('/index', index);
+app.use('/barangs', barang);
 
 app.use(function (req, res) {
   if ((req.session)&&(req.session.login)) {
@@ -37,6 +31,13 @@ app.use(function (req, res) {
       res.redirect('/login') // arahkan login
   }
 })
+
+
+// Logout endpoint
+app.get('/logout', function (req, res) {
+  req.session.destroy();
+  res.send("logout success!");
+});
 
 app.listen(process.env.PORT||3001,()=>{
   console.log('Listening Port 3001')

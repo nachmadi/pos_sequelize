@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>STUDENTS</title>
+  <style>
+    table{width:500px;border:1px solid #333;}
+    table th{padding:5px;background: #ccc; text-align: left;}
+    table td{padding:5px;}
+  </style>
+</head>
+<body>
+  <h1>BARANG EDIT</h1>
+  <a href="/barangs">Show All Data</a>
+  <form action="/barangs/edit/<%=barang.id%>" method="post">
+  <div>
+    <label><b>Nama Barang<b></label><br>
+    <input type="text" name="nama_barang" value= "<%=barang.nama_barang%>" placeholder="Nama Barang">
+  </div>
+  <div>
+    <label><b>Satuan<b></label><br>
+    <input type="text" name="satuan" value= "<%=barang.satuan%>" placeholder="Satuan">
+  </div>
+  <div>
+    <label><b>Harga<b></label><br>
+    <input type="text" name="harga" value= "<%=barang.harga%>" placeholder="harga">
+  </div>
+  <div>
+    <label><b>Stock<b></label><br>
+    <input type="text" name="stock" value= "<%=barang.stock%>" placeholder="Stock">
+  </div>
+
+  <button type="submit" name="submit">Save</button>
+
+</body>
+</html>

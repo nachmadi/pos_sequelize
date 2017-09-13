@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Barang</title>
+  <style>
+    table{width:500px;border:1px solid #333;}
+    table th{padding:5px;background: #ccc; text-align: left;}
+    table td{padding:5px;}
+  </style>
+</head>
+<body>
+  <h1>ADD BARANG</h1>
+  <a href="/barangs">Show All Data</a>
+  <%if(err){  %>
+    <div id="info"><%=error%></div>
+  <%} %>
+  <form action="/barangs/add" method="post">
+  <div>
+    <label><b>Nama Barang<b></label><br>
+    <input type="text" name="nama_barang" placeholder="Nama Barang">
+  </div>
+  <div>
+    <label><b>Satuan<b></label><br>
+    <input type="text" name="satuan" placeholder="Satuan">
+  </div>
+  <div>
+    <label><b>Harga<b></label><br>
+    <input type="text" name="harga" placeholder="Harga">
+  </div>
+
+  <div>
+    <label><b>Stock<b></label><br>
+    <input type="text" name="stock" placeholder="Stock Barang">
+  </div>
+
+  <button type="submit" name="submit">Add</button>
+</body>
+</html>

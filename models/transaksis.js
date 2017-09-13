@@ -1,15 +1,20 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Transaksis = sequelize.define('Transaksis', {
-    trans_tgl: DataTypes.STRING,
-    trans_total: DataTypes.INTEGER,
-    UsersId: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+      trans_tgl: DataTypes.STRING,
+      trans_total: DataTypes.INTEGER,
+      UsersId: DataTypes.INTEGER
   });
+
+  Transaksis.associate = function(models){
+        Transaksis.belongsTo(models.Users);
+        Transaksis.belongsToMany(models.Barangs, {
+            through: "Detils"
+         })
+
+         //Transaksis.hasMany(models.Detils);
+  }
+
+
   return Transaksis;
 };

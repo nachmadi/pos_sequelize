@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Barang</title>
+  <style>
+    table{width:500px;border:1px solid #333;}
+    table th{padding:5px;background: #ccc; text-align: left;}
+    table td{padding:5px;}
+  </style>
+</head>
+<body>
+  <h1>Barangs</h1>
+  <a href="/">HOME</a>|<a href="/barangs/add">ADD</a>
+  <table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <th>ID</th>
+      <th>NAMA BARANG</th>
+      <th>SATUAN</th>
+      <th>HARGA BARANG</th>
+      <th>STOCK</th>
+      <th>Action</th>
+      <th>Option</th>
+    </tr>
+
+    <% barangs.forEach (data =>{%>
+      <tr>
+        <td>&nbsp<%=data.id %></td>
+        <td>&nbsp<%=data.nama_barang%></td>
+        <td>&nbsp<%=data.satuan%></td>
+        <td>&nbsp<%=data.harga%></td>
+        <td>&nbsp<%=data.stock%></td>
+        <td><a href="/barangs/edit/<%= data.id %>">Edit</a>|<a href="/barangs/delete/<%= data.id %>">Delete</a></td>
+      </tr>
+      <% }) %>
+  </table>
+
+</body>
+</html>
