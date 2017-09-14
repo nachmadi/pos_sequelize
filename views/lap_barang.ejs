@@ -16,14 +16,14 @@
               </table>
               <p>&nbsp;</p>
               <p>&nbsp;</p>
-              <table class="lap" style="width:100%; border:2px; cellpadding:1px; cellspacing:1px;">
+              <table class="table">
                  <tr>
-                      <td>No</td>
-                      <td>Nama Barang</td>
-                      <td>Satuan</td>
-                      <td>Tgl Transaksi</td>
-                      <td>Jml Jual</td>
-                      <td>Total Harga</td>
+                      <th>No</th>
+                      <th>Nama Barang</th>
+                      <th>Satuan</th>
+                      <th>Tgl Transaksi</th>
+                      <th>Jml Jual</th>
+                      <th>Total Harga</th>
                  </tr>
 
                    <% let i=1; reportBrg.forEach(brgs=>{ %>
@@ -35,12 +35,12 @@
                             <%=trans.trans_tgl%> </br>
                          <% }) %>
                          </td>
-                         <td align="center">
+                         <td align="right">
                          <% brgs.Transakses.forEach(trans=>{ %>
                             <%=trans.Detils.jml_beli%></br>
                         <% }) %>
                         </td>
-                        <td  align="center">
+                        <td align="right">
                         <% brgs.Transakses.forEach(trans=>{ %>
                            <%=trans.Detils.sub_total%></br>
                         <% }) %>

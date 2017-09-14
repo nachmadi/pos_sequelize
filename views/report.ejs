@@ -1,18 +1,20 @@
+
 <!DOCTYPE html>
 <html>
 <%- include partial/header %>
 <body>
   <%- include partial/menu %>
   <div class="container">
-    <form action="/reports/lb" method="post">
+
     <div class='frm_body'>
           <h2>LAPORAN</h2>
           <div align="center">
-          <select id="cmb_JnsTrans">
+          <form action="/reports/lb" method="post">
+          <select name="cmb_JnsTrans">
                     <option value = "">-PILIH TRANSAKSI-</option>
-                    <option value = "0">Customer</option>
-                    <option value = "1">Barang</option>
-                    <option value = "2">Transaksi</option>
+                    <option value = "1">Customer</option>
+                    <option value = "2">Barang</option>
+                    <option value = "3">Transaksi</option>
           </select>
         </div>
 
@@ -26,7 +28,7 @@
                 }
             </script>
           </select> -->
-          <select id="cmbBln" >
+          <select name="cmbBln" >
             <option value = "">-PILIH BULAN-</option>
                <script>
                    var m = new Date();
@@ -46,7 +48,7 @@
               </script>
           </select>
 
-          <select id="cmbThn" >
+          <select name="cmbThn" >
                <option value = "">-PILIH TAHUN-</option>
                <script>
                var y = new Date();

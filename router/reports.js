@@ -63,16 +63,12 @@ router.get('/lt',(req, res)=>{
        through:'Detils'
    }]})
   .then(hasil=>{
-       res.send(hasil);
+       res.send({reportTrans:hasil});
   })
    .catch(error=> {
       res.send(error);
    });
 });
-
-models.Detils.findAll({
-  include: [{model:models.Barangs}]
-})
 
 router.get('/ld',(req, res)=>{
    models.Detils.findAll({
@@ -102,8 +98,8 @@ router.get('/lu',(req, res)=>{
      }]
    })
   .then(hasil=>{
-//       res.send(hasil);
-       res.render('lap_customer',{reportCus:hasil});
+       res.send(hasil);
+       //res.render('lap_customer',{reportCus:hasil});
   })
    .catch(error=> {
       res.send(error);
@@ -120,8 +116,8 @@ router.get('/lb',(req, res)=>{
         }]
    })
   .then(hasil=>{
-       res.render('lap_barang',{reportBrg:hasil});
-       //res.send({reportBrg:hasil});
+       //res.render('lap_barang',{reportBrg:hasil});
+       res.send({reportBrg:hasil});
   })
    .catch(error=> {
       res.send(error);
@@ -129,22 +125,63 @@ router.get('/lb',(req, res)=>{
 });
 
 router.post('/lb',(req, res)=>{
-   models.Barangs.findAll({
-         include:[{
-           // through akan menghasilkan query INNER JOIN
-            model: models.Transaksis
-            ,
-            through:'Detils'
-        }]
-   })
-  .then(hasil=>{
-       res.render('lap_barang',{reportBrg:hasil});
-       //res.send({reportBrg:hasil});
-  })
-   .catch(error=> {
-      res.send(error);
-   });
+   //let jnsLaporan = req.body.cmb_JnsTrans;
+   //let bulan = req.body.cmbBln;
+   //let tahun = req.body.cmbThn;
+
+   if(req.body.cmb_JnsTrans==1){
+     models.Users.findAll({
+       include:[{
+          // menghasilkan query LEFT OUTER JOIN
+          model: models.Transaksis
+          ,
+          include:[{
+             // through akan menghasilkan query INNER JOIN
+              model: models.Barangs
+              ,
+              through:'Detils'
+          }]
+       }]
+     })
+    .then(hasil=>{
+          // res.send(hasil);
+         res.render('lap_customer',{reportCus:hasil});
+    })
+     .catch(error=> {
+        res.send(error);
+     });
+   }else if(req.body.cmb_JnsTrans==2){
+       models.Barangs.findAll({
+             include:[{
+               // through akan menghasilkan query INNER JOIN
+                model: models.Transaksis
+                ,
+                through:'Detils'
+            }]
+       })
+      .then(hasil=>{
+           res.render('lap_barang',{reportBrg:hasil});
+           //res.send({reportBrg:hasil});
+      })
+       .catch(error=> {
+          res.send(error);
+       });
+    } else if(req.body.cmb_JnsTrans==3){
+      models.Transaksis.findAll({include:[{model:models.Users},{
+         // through akan menghasilkan query INNER JOIN
+          model: models.Barangs
+          ,
+          through:'Detils'
+      }]})
+      .then(hasil=>{
+          res.render('lap_transaksi',{reportTrans:hasil});
+      })
+      .catch(error=> {
+         res.send(error);
+      });
+    }
 });
+
 
 
 router.get('/lbg',(req, res)=>{
