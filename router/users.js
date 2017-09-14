@@ -12,7 +12,14 @@ router.get('/add',(req,res)=>{
   res.render('users_add',{message:'',role:req.session.login.role});
 })
 router.post('/add',(req,res)=>{
-  models.Users.create(req.body)
+  let obj={
+    user_name:req.body.user_name,
+    user_pass:req.body.user_pass,
+    salt:'123',
+    role:req.body.role,
+    deposito:0
+  }
+  models.Users.create(obj)
   .then(users=>{
     res.redirect('/users');
   })

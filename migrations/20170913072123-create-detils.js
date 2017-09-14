@@ -20,7 +20,7 @@ module.exports = {
       TransaksisId: {
         type: Sequelize.INTEGER
       },
-      BarangsId: {
+      BarangId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

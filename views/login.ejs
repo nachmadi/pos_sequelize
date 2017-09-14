@@ -3,21 +3,20 @@
 <%- include partial/header %>
 <body>
   <section>
-  <h3>Login Member</h3>
-  <%if(err){  %>
+    <%if(err){  %>
     <div id="info"><%=info%></div>
-  <%} %>
-  <form action="/login" method="post">
+    <%} %>
+  <form action="/login" method="post" class="login">
     <div>
-      <p>User</p>
+      <p>Username</p>
       <input type="text" name="user_name" placeholder="User Login">
     </div>
     <div>
       <p>Password</p>
-      <input type="text" name="user_pass" placeholder="Password">
+      <input type="password" name="user_pass" placeholder="Password">
     </div>
     <div>
-      <p><input type="submit" value="Login"></p>
+    <p><input type="submit" value="Login"> <a href="/signup">Sign Up</a></p>
     </div>
   </form>
 </section>

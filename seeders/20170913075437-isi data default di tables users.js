@@ -7,6 +7,7 @@ module.exports = {
           user_pass: "871bb1c0c3c295c0978de273666c5784",
           role:"admin",
           salt:"123",
+          deposito:0,
           createdAt:new Date(),
           updatedAt:new Date()
         }], {});

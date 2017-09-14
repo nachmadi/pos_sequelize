@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     jml_beli: DataTypes.INTEGER,
     sub_total: DataTypes.INTEGER,
     TransaksisId: DataTypes.INTEGER,
-    BarangsId: DataTypes.INTEGER
+    BarangId: DataTypes.INTEGER
   });
   Detils.associate = function(models){
       Detils.belongsTo(models.Transaksis);

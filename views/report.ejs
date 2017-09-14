@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<%- include partial/header %>
+<body>
+  <%- include partial/menu %>
+  <div class="container">
+    <div class='frm_body'>
+          <h2>LAPORAN</h2>
+          <div align="center">
+          <form action="/reports/lb" method="post">
+          <select name="cmb_JnsTrans">
+                    <option value = "">-PILIH TRANSAKSI-</option>
+                    <option value = "1">Customer</option>
+                    <option value = "2">Barang</option>
+                    <option value = "3">Transaksi</option>
+          </select>
+          <button type="submit" name="submit">Tampilkan</button>
+        </div>
+
+        <!-- <div align="center">
+          <!-- <select id="cmbTgl" >
+            <option value = "">-PILIH TANGGAL-</option>
+             <script>
+                var maxDay = 31;
+                for (var i=1; i<=maxDay; i++){
+                    document.write("<option value='"+i+"'>"+i+"</option>");
+                }
+            </script>
+          </select> -->
+          <!-- <select id="cmbBln" >
+            <option value = "">-PILIH BULAN-</option>
+               <script>
+                   var m = new Date();
+                   var array = ["Januari", "Februari", "Maret", "April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+                   var month = m.getMonth();
+                   document.write("<option value="+array[month]+">"+array[month]+"</option>");
+                   if (month==0){
+                      document.write("<option value=11>"+array[11]+"</option>");
+                      document.write("<option value=10>"+array[10]+"</option>");
+                   } else if (month==1){
+                       document.write("<option value=0>"+array[0]+"</option>");
+                       document.write("<option value=11>"+array[11]+"</option>");
+                  } else{
+                       document.write("<option value="+(month-1)+">"+array[(month-1)]+"</option>");
+                       document.write("<option value="+(month-2)+">"+array[(month-2)]+"</option>");
+                  }
+              </script>
+          </select>
+
+          <select id="cmbThn" >
+               <option value = "">-PILIH TAHUN-</option>
+               <script>
+               var y = new Date();
+               var year = y.getFullYear();
+               document.write("<option value="+year+">"+year+"</option>");
+               document.write("<option value="+(year-1)+">"+(year-1)+"</option>");
+               </script>
+          </select>
+        </div>  -->
+        <div class='frm_header' style=" margin-bottom: 5px; text-align: center;">
+             <div class="bgjudul" >
+             </div>
+       </div>
+  </div>
+</form>
+</div>
+</body>
+</html>

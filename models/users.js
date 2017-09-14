@@ -1,5 +1,6 @@
 'use strict';
 var utility = require('../helper/util.js');
+// var tools = require('../helper/encrypter.js');
 
 module.exports = function(sequelize, DataTypes) {
   var Users = sequelize.define('Users', {
@@ -30,6 +31,11 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     hooks: {
       beforeCreate: (callBackObjekIni) => {
+        /*
+        let plus = tools.rand();
+        let pass = tools.crypt(callBackObjekIni,plus);
+        let objPass = {password:pass,salt:plus}
+        */
         let newPass = utility.getMd5(callBackObjekIni.user_pass+callBackObjekIni.salt);
         callBackObjekIni.user_pass = newPass;
       }

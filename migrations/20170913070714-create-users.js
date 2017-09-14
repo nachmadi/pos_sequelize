@@ -20,6 +20,9 @@ module.exports = {
       role: {
         type: Sequelize.STRING
       },
+      deposito: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

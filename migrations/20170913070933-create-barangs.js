@@ -17,6 +17,9 @@ module.exports = {
       harga: {
         type: Sequelize.INTEGER
       },
+      stok: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

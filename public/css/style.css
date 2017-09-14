@@ -35,6 +35,7 @@ a{text-decoration: none; color:#FF7F00 }
 form{display: block; width: 400px; margin: auto; margin-top: 20px;}
 form p{padding:10px 0; letter-spacing: 1px; color: #666}
 form input[type='text']{width:90%;border:1px solid #ccc; height: 35px; padding: 7px;}
+form input[type='password']{width:90%;border:1px solid #ccc; height: 35px; padding: 7px;}
 form select{width:90%;border:1px solid #ccc; height: 35px; padding: 7px;}
 form input[type='submit']{width:90%;border:1px solid #FF7F00; color:#fff; background:#FF7F00; height: 35px; padding: 7px; cursor: pointer;}
 form input[type='submit']:hover{background:#FF8C00}
@@ -53,4 +54,9 @@ form input[type='submit']:hover{background:#FF8C00}
 section {display:block; width: 500px; min-height:200px; margin:10% 25%;}
 section h3{margin: 0; padding: 0; color: #104E8B; font-weight: bold}
 section form p{color: #666;}
+section input[type='submit']{border:1px solid #FF7F00;width:100px; color:#fff; background:#FF7F00; height: 35px; padding: 7px; cursor: pointer;}
+section input[type='submit']:hover{background:#FF8C00}
+section input[type='text']{width:90%;border:1px solid #ccc; height: 35px; padding: 7px;}
+section input[type='password']{width:90%;border:1px solid #ccc; height: 35px; padding: 7px;}
+
 /*section form input[type:'submit']{border: 1px solid color:#1874CD}*/
