@@ -2,20 +2,25 @@
 <html>
 <%- include partial/header %>
 <body>
-  <h1>STUDENTS ADD</h1>
+  <section>
+  <h3>Login Member</h3>
   <%if(err){  %>
     <div id="info"><%=info%></div>
   <%} %>
   <form action="/login" method="post">
-  <div>
-    <label><b>User<b></label><br>
-    <input type="text" name="user_name" placeholder="User Login">
-  </div>
-  <div>
-    <label><b>Password<b></label><br>
-    <input type="text" name="user_pass" placeholder="Password">
-  </div>
-
-  <button type="submit" name="submit">Login</button>
+    <div>
+      <p>User</p>
+      <input type="text" name="user_name" placeholder="User Login">
+    </div>
+    <div>
+      <p>Password</p>
+      <input type="text" name="user_pass" placeholder="Password">
+    </div>
+    <div>
+      <p><input type="submit" value="Login"></p>
+    </div>
+  </form>
+</section>
 </body>
 </html>
+<!-- <a href="/signup">SignUp</a> -->

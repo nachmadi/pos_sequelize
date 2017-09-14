@@ -6,12 +6,10 @@ module.exports = function(sequelize, DataTypes) {
     sub_total: DataTypes.INTEGER,
     TransaksisId: DataTypes.INTEGER,
     BarangsId: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+  Detils.associate = function(models){
+      Detils.belongsTo(models.Transaksis);
+      Detils.belongsTo(models.Barangs);
+  }
   return Detils;
 };

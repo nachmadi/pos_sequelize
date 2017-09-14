@@ -1,0 +1,19 @@
+<html>
+  <%- include partial/header %>
+  <body>
+    <%- include partial/menu %>
+    <div class="container">
+      <form action="/item/<%-barang.id%>" method="post">
+        <h3><%-barang.nama_barang%></h3>
+        <div class="item">
+          <img src="/static/images/lifeboy.jpg">
+          <input type="text" name="harga" value="<%-barang.harga%>">
+          <input type="text" name="stok" value="<%-barang.stok%>">
+          <p>Jumlah pembelian</p>
+          <input type="text" name="jml_beli" value="1">
+          <input type="submit" value="Tambah Item">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

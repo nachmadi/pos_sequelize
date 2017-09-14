@@ -16,7 +16,10 @@ router.post('/',(req, res)=>{
         let passFromTable = userLogin.user_pass;
         let passFromClien =  utility.getMd5(req.body.user_pass+userLogin.salt.trim());
         if(passFromTable===passFromClien){
-            req.session.login=true;
+            req.session.login={isLogin:true,err:false,role:userLogin.role,userId:userLogin.id};
+            var hour = 3600000;
+            req.session.cookie.expires = new Date(Date.now() + hour);
+            req.session.cookie.maxAge = hour;
             res.redirect('/');
         }else{
             res.render('login',{err:true, info:'Password Salah!'});

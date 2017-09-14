@@ -5,26 +5,22 @@
   <%- include partial/menu %>
   <div class="container">
     <div class="top">
-      <p>KERANJANG BELANJA:</p>
-      <label id="daftar_pesanan"></label>
       <h1>Warung Online</h1>
       <img class="icon" src="/static/images/warung-online.jpg">
     </div>
-      <input type="hidden" name="jml_beli" placeholder="jumlah">
-      <% for(no=0;no<15;no++){%>
-        <% barang.forEach(i=>{ %>
-        <div class="barang">
-          <p><%=i.nama_barang%></p>
-          <img src="/static/images/lifeboy.jpg">
-          <div class="panel">
-            <p>Harga : <%=i.harga%></p>
-            <p>Stok : <%=i.stok%></p>
-            <input type="checkbox" id="BarangId<%=no%>" name="BarangId[]" value="<%=no%>" onclick="setQty('<%=no%>')">
-          </div>
+    <% barang.forEach(i=>{ %>
+    <div class="barang">
+      <p><%=i.nama_barang%></p>
+      <img src="/static/images/lifeboy.jpg">
+      <a href="/item/<%=i.id%>">
+        <div class="panel">
+          <p>Harga : <%=i.harga%></p>
+          <p>Stok : <%=i.stok%></p>
         </div>
-       <% }) %>
-    <%}%>
-    <input type="submit" value="Tambah">
+      </a>
+    </div>
+    <% }) %>
+    <div class="c"></div>
   </div>
 </body>
 </html>

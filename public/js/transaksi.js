@@ -1,25 +1,10 @@
 if (typeof(localStorage) !== "undefined") {
     if (localStorage.userData === undefined){
-		var detailTransaksi = {
-							  'harga':[],
-							  'jml_beli':[],
-							  'sub_total':[],
-							  'TransaksisId':[],
-							  'BarangsId':[]
-							}
+		var tempPenjualan = {}
 		  localStorage.setItem('detailTransaksi', JSON.stringify(detailTransaksi));
     }
 } else {
 	alert("Oop's browser anda tidak mendukung penyimpanan lokal!");
-}
-class Transaksi{
-  constructor(harga,jml_beli,sub_total,TransaksisId,BarangsId){
-    this.harga=harga;
-    this.jml_beli=jml_beli;
-    this.sub_total=sub_total;
-    this.TransaksisId=TransaksisId;
-    
-  }
 }
 function setQty(BarangId){
   let id=document.getElementById('BarangId'+BarangId)
@@ -29,7 +14,12 @@ function setQty(BarangId){
     let qty=prompt('Masukan jumlah barang');
     if(qty){
       if(qty!==null){
-        addItem(BarangId,qty)
+        let arrItem=[];
+        let harga=1500;
+        let jml_beli=qty;
+        let sub_total=harga*jml_beli;
+        let TransaksisId=1;
+        let BarangsId=BarangId;
       }else{
         return
       }

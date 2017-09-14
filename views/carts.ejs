@@ -1,0 +1,35 @@
+<html>
+  <%- include partial/header %>
+  <body>
+    <%- include partial/menu %>
+    <div class="container">
+      <h2>Daftar belanja : <%-session.userId%></h2>
+      <table class="table" cellpading="0" cellspacing="0">
+        <th>No</th>
+        <th>Nama barang</th>
+        <th>Jumlah Beli</th>
+        <th>Harga</th>
+        <th>Sub total</th>
+        <th colspan="2">Actions</th>
+        <%
+        let no=1;
+        let total=0;
+        item.forEach(i=>{
+        %>
+        <tr>
+          <td width="20"><%=no%></td>
+          <td><%=i.Barang.nama_barang%></td>
+          <td><%=i.jml_beli%></td>
+          <td><%=i.harga%></td>
+          <td><%=i.sub_total%></td>
+          <td width="30"><a class="btn" href="/delete/<%=i.id%>"><i class="fa fa-trash"></i></a></td>
+        </tr>
+        <% no++; total+=i.sub_total; })%>
+      </table>
+      <form action="/transaksis" method="post">
+      <input type="text" name="total" value="<%-total%>">
+      <input type="submit" value="Beli">
+      </form>
+      </div>
+  </body>
+</html>

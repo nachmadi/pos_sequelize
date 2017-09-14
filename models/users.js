@@ -25,7 +25,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     user_pass: DataTypes.STRING,
     salt: DataTypes.STRING,
-    role: DataTypes.STRING
+    role: DataTypes.STRING,
+    deposito: DataTypes.STRING
   }, {
     hooks: {
       beforeCreate: (callBackObjekIni) => {
@@ -34,5 +35,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+  Users.associate = function(models){
+      Users.hasMany(models.Transaksis)
+  }
   return Users;
 };

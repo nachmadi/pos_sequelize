@@ -1,9 +1,15 @@
 <div class="menu">
   <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/barangs">Barang</a></li>
-    <li><a href="/transaksi">Transaksi</a></li>
-    <li><a href="/users">Users</a></li>
-    <li style="float:right"><a href="/logout">LogOut</a></li>
+    <% if(role=='admin'){%>
+    <li><a href="/"><i class="fa fa-home"></i></a></li>
+    <li><a href="/barangs"><i class="fa fa-tags"></i></a></li>
+    <li><a href="/users"><i class="fa fa-users"></i></a></li>
+    <li><a href="/cart"><i class="fa fa-shopping-cart"></i></a></li>
+    <li style="float:right"><a href="/logout"><i class="fa fa-sign-out"></i></a></li>
+    <%}else{%>
+      <li><a href="/"><i class="fa fa-home"></i></a></li>
+      <li><a href="/cart"><i class="fa fa-shopping-cart"></i></a></li>
+      <li style="float:right"><a href="/logout"><i class="fa fa-sign-out"></i></a></li>
+    <%}%>
   </ul>
 </div>

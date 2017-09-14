@@ -18,15 +18,6 @@
 //
 // app.use('/asset', express.static(path.join(__dirname, '/asset')))
 // app.use(session({secret:'secret',cookies:{}}))
-// app.use('/login', login);
-//
-// // app.use('/',(req,res,next)=>{
-// //   if(req.session.login){
-// //     next()
-// //   }else{
-// //     res.redirect('/login');
-// //   }
-// // })
 // // deklarasi letak file.js {otomatis di tambah s}
 // app.use('/', index);
 // app.use('/users', user);
@@ -66,21 +57,29 @@ app.use('/static',express.static(__dirname + '/public'));
 var session = require('express-session');
 var md5 = require('md5');
 var utility = require('./helper/util.js');
-
 var login = require('./router/login.js');
 var index = require('./router/index.js');
 var user = require('./router/users.js');
 var transaksi = require('./router/transaksis.js');
-
-app.use(session({secret:'secret',cookies:{}}))
+app.use(session({
+  secret:'secret',
+  cookies:{}
+}))
 app.use('/login', login);
-
-
+app.use('/',(req,res,next)=>{
+  if(req.session.login){
+    next()
+  }else{
+    res.redirect('/login');
+  }
+})
+app.get('/logout', function (req, res) {
+  req.session.destroy();
+  res.redirect('/');
+});
 app.use('/', index);
 app.use('/users', user);
 app.use('/transaksis', transaksi);
-
-
 app.listen(process.env.PORT||3000,()=>{
   console.log('Listening Port 3000')
 });

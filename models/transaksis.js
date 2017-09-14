@@ -4,12 +4,14 @@ module.exports = function(sequelize, DataTypes) {
     trans_tgl: DataTypes.STRING,
     trans_total: DataTypes.INTEGER,
     UsersId: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
-  return Transaksis;
+  // Transaksis.associate = function(models){
+  //         Transaksis.belongsTo(models.Users);
+  //         Transaksis.belongsToMany(models.Barangs, {
+  //             through: "Detils"
+  //          })
+  //
+  //         //Transaksis.hasMany(models.);
+  //   }
+    return Transaksis;
 };

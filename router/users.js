@@ -5,11 +5,11 @@ var models=require('../models');
 router.get('/',(req,res)=>{
   models.Users.findAll()
   .then(users=>{
-    res.render('users',{user:users});
+    res.render('users',{user:users,role:req.session.login.role});
   })
 })
 router.get('/add',(req,res)=>{
-  res.render('users_add',{message:''});
+  res.render('users_add',{message:'',role:req.session.login.role});
 })
 router.post('/add',(req,res)=>{
   models.Users.create(req.body)
@@ -17,13 +17,13 @@ router.post('/add',(req,res)=>{
     res.redirect('/users');
   })
   .catch(err=>{
-    res.render('users_add',{message:err.errors[0].message});
+    res.render('users_add',{message:err.errors[0].message,role:req.session.login.role});
   })
 })
 router.get('/edit/:id',(req,res)=>{
   models.Users.findOne({where:{id:req.params.id}})
   .then(users=>{
-    res.render('users_edit', {user:users,message:''});
+    res.render('users_edit', {user:users,message:'',role:req.session.login.role});
   })
 })
 router.post('/edit/:id',(req,res)=>{
@@ -35,7 +35,7 @@ router.post('/edit/:id',(req,res)=>{
   .catch(err=>{
     models.Users.findOne({where:{id:req.params.id}})
     .then(users=>{
-      res.render('users_edit',{user:users,message:err.errors[0].message})
+      res.render('users_edit',{user:users,message:err.errors[0].message,role:req.session.login.role})
     })
   })
 })
