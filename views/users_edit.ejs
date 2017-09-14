@@ -1,0 +1,25 @@
+<html>
+  <%-include partial/header%>
+  <body>
+    <%-include partial/menu%>
+    <div class="container">
+      <h2>Edit data user</h2>
+      <h3><a href='/users'>Show all data</a></h3>
+      <form action="/users/edit/<%-user.id%>" method="post">
+      <p>Username</p>
+      <input type="text" name="user_name" value="<%-user.user_name%>">
+      <label><%-message%></label>
+      <p>Role</p>
+      <select name="role">
+        <option value="<%-user.role%>" selected><%-user.role%></option>
+        <option value="admin">admin</option>
+        <option value="customer">customer</option>
+      </select>
+      </p>
+      <p>
+      <input type="submit" value="Update User">
+      </p>
+      </form>
+    </div>
+  </body>
+</html>
