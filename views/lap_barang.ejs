@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<%- include partial/header %>
+<body>
+  <%- include partial/menu %>
+  <div class="container">
+   <div id="report">
+          <div id="reportwrapper" class="reportwrapper">
+            <div id="reportcontainer" class="reportcontainer">
+             <div class="content_wrapper">
+               <table class="lap" style="border:0; cellpadding:0; cellspacing:0;">
+                 <tr><td colspan="4"><h2>Laporan transaksi berdasar barang</h2></td></tr>
+                 <tr><td colspan="4"><hr></hr></td></tr>
+                 <tr><td colspan="4">POS Online</td></tr>
+                 <tr><td colspan="4"><%= new Date(); %> </td></tr>
+              </table>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <table class="table">
+                 <tr>
+                      <th>No</th>
+                      <th>Nama Barang</th>
+                      <th>Satuan</th>
+                      <th>Tgl Transaksi</th>
+                      <th>Jml Jual</th>
+                      <th>Total Harga</th>
+                 </tr>
+
+                   <% let i=1; reportBrg.forEach(brgs=>{ %>
+                   <tr>  <td><%=i++%></td>
+                         <td><%=brgs.nama_barang%></td>
+                         <td><%=brgs.satuan%></td>
+                         <td>
+                         <% brgs.Transakses.forEach(trans=>{ %>
+                            <%=trans.trans_tgl%> </br>
+                         <% }) %>
+                         </td>
+                         <td align="right">
+                         <% brgs.Transakses.forEach(trans=>{ %>
+                            <%=trans.Detils.jml_beli%></br>
+                        <% }) %>
+                        </td>
+                        <td align="right">
+                        <% brgs.Transakses.forEach(trans=>{ %>
+                           <%=trans.Detils.sub_total%></br>
+                        <% }) %>
+                        </td>
+
+                       <% }) %>
+                  </tr>
+             </table>
+             <center><div id="typeReport"><br><br><br></div></center>
+             <p>&nbsp;</p>
+             <table class="lap" style="width:30%; border:0; align:left;">
+               <tr><td>JML</td><td>:</td><td id="bill"></td></tr>
+             </table>
+
+           <div id="signature">
+
+           </div>
+
+           <div class="spacer"></div>
+         </div>
+       </div>
+     </div>
+  </div>
+
+  </div>
+  </body>
+  </html>

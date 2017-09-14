@@ -13,7 +13,12 @@ module.exports = function(sequelize, DataTypes) {
         let newPass = utility.getMd5(callBackObjekIni.user_pass+callBackObjekIni.salt);
         callBackObjekIni.user_pass = newPass;
       }
-    }  
+    }
   });
+
+  Users.associate = function(models){
+      Users.hasMany(models.Transaksis)
+  }
+
   return Users;
 };

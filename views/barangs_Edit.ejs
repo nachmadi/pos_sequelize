@@ -1,0 +1,31 @@
+<html>
+<%- include partial/header %>
+<body>
+  <%-include partial/menu%>
+  <div class="container">
+      <h2>Tambah Barang</h2>
+      <h3><a href="/barangs">Show All Data</a></h3>
+
+          <form action="/barangs/edit/<%=barang.id%>" method="post">
+          <div>
+            <label><b>Nama Barang<b></label><br>
+            <input type="text" name="nama_barang" value= "<%=barang.nama_barang%>" placeholder="Nama Barang">
+          </div>
+          <div>
+            <label><b>Satuan<b></label><br>
+            <input type="text" name="satuan" value= "<%=barang.satuan%>" placeholder="Satuan">
+          </div>
+          <div>
+            <label><b>Harga<b></label><br>
+            <input type="text" name="harga" value= "<%=barang.harga%>" placeholder="harga">
+          </div>
+          <div>
+            <label><b>Stock<b></label><br>
+            <input type="text" name="stock" value= "<%=barang.stock%>" placeholder="Stock">
+          </div>
+
+          <button type="submit" name="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

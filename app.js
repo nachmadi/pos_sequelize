@@ -5,38 +5,44 @@ var session = require('express-session');
 var md5 = require('md5');
 var utility = require('./helper/util.js');
 
-var modelLogin = require('./router/login.js');
-var modelIndex = require('./router/index.js');
+var login = require('./router/login.js');
+var index = require('./router/index.js');
+var barang = require('./router/barangs.js');
+var report = require('./router/reports.js');
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use(session({
   secret: 'rahasia',
-  cookie: {}
+  cookie: {maxAge: 60000}
 }))
 
 // deklarasi letak file.js {otomatis di tambah s}
 app.set('view engine', 'ejs');
+var path = require('path')
+app.use('/static',express.static(__dirname + '/public'));
 
-app.use('/login', modelLogin);
-app.use('/index', modelIndex);
+
+app.use('/login', login);
+app.use('/index', index);
+app.use('/barangs', barang);
+app.use('/reports', report);
+
+// app.use(function (req, res) {
+//   if ((req.session)&&(req.session.login)) {
+//       res.redirect('/index');
+//   } else {
+//       res.redirect('/login') // arahkan login
+//   }
+// })
+
 
 // Logout endpoint
 app.get('/logout', function (req, res) {
   req.session.destroy();
   res.send("logout success!");
 });
-
-console.log(utility.getMd5("123"+"123"));
-
-app.use(function (req, res) {
-  if ((req.session)&&(req.session.login)) {
-      res.redirect('/index');
-  } else {
-      res.redirect('/login') // arahkan login
-  }
-})
 
 app.listen(process.env.PORT||3001,()=>{
   console.log('Listening Port 3001')
