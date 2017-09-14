@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Transaksis = sequelize.define('Transaksis', {
       trans_tgl: DataTypes.STRING,
       trans_total: DataTypes.INTEGER,
-      UsersId: DataTypes.INTEGER
+      UserId: DataTypes.INTEGER
   });
 
   Transaksis.associate = function(models){

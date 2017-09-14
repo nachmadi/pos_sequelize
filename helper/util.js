@@ -13,5 +13,17 @@ module.exports = {
     },
     getMd5:function(text, salt){
       return md5(text+salt);
+    },
+    GetFormattedDate:function() {
+      var currentDt = new Date();
+      var mm = currentDt.getMonth() + 1;
+      var dd = currentDt.getDate();
+      var yyyy = currentDt.getFullYear();
+      return mm + '/' + dd + '/' + yyyy;
+    },
+    stringToTitikRibuan(bilangan){
+      var	reverse = bilangan.toString().split('').reverse().join('');
+      var	ribuan 	= reverse.match(/\d{1,3}/g);
+      return ribuan.join('.').split('').reverse().join('');
     }
 }

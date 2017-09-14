@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Student Subject Teacher</title>
-</head>
+<%- include partial/header %>
 <body>
-  <h1>TUGAS WEEK 4</h1>
-  <hr>
-  <a href="/users">Users</a>
-  <a href="/barangs">Barang</a>
-  <a href="/subjects">Subject</a>
-  <a href="/teachers">Teachers</a>
-  <a href="/logout">LogOut</a>
+  <%- include partial/menu %>
+  <div class="container">
+    <div class="top">
+      <p>KERANJANG BELANJA:</p>
+      <label id="daftar_pesanan"></label>
+      <h1>Warung Online</h1>
+      <img class="icon" src="/static/images/warung-online.jpg">
+    </div>
+      <input type="hidden" name="jml_beli" placeholder="jumlah">
+      <% for(no=0;no<15;no++){%>
+        <% barang.forEach(i=>{ %>
+        <div class="barang">
+          <p><%=i.nama_barang%></p>
+          <img src="/static/images/lifeboy.jpg">
+          <div class="panel">
+            <p>Harga : <%=i.harga%></p>
+            <p>Stok : <%=i.stok%></p>
+            <input type="checkbox" id="BarangId<%=no%>" name="BarangId[]" value="<%=no%>" onclick="setQty('<%=no%>')">
+          </div>
+        </div>
+       <% }) %>
+    <%}%>
+    <input type="submit" value="Tambah">
+  </div>
 </body>
 </html>

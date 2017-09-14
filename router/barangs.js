@@ -4,13 +4,13 @@ let router = express.Router();
 let models = require('../models');
 
 
-router.use(function (req, res, next) {
-  if ((req.session)&&(req.session.login)) {
-      next();
-  } else {
-      res.redirect('/login') // arahkan login
-  }
-})
+// router.use(function (req, res, next) {
+//   if ((req.session)&&(req.session.login)) {
+//       next();
+//   } else {
+//       res.redirect('/login') // arahkan login
+//   }
+// })
 
 router.get('/',(req, res)=>{
    models.Barangs.all()
