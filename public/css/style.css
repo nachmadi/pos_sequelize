@@ -29,6 +29,9 @@ a{text-decoration: none; color:#FF7F00 }
 .btn {font-size: 22px; cursor: pointer;}
 .btn a{ color: #FF7F00;}
 .btn a:hover{color: #FF8C00;}
+.top {background: #ccc;}
+.top img{float: left;}
+
 form{display: block; width: 400px; margin: auto; margin-top: 20px;}
 form p{padding:10px 0; letter-spacing: 1px; color: #666}
 form input[type='text']{width:90%;border:1px solid #ccc; height: 35px; padding: 7px;}
@@ -42,7 +45,6 @@ form input[type='submit']:hover{background:#FF8C00}
 .transaksi input[type='submit']:hover{background:#FF8C00}
 
 .barang {display: block; width: 150px; cursor: pointer; position: relative; height: 170px; border: 1px solid #ccc;margin: 5px; float: left;}
-.barang:hover{background: #ccc;}
 .barang img {width: 150px;}
 .barang p{text-align: center;}
 .barang .panel{display:block; height:40px; width:100%; background:#FF7F00; position:absolute; bottom:0;}
